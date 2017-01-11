@@ -1,0 +1,4 @@
+com\contact\services\ContactServices.class
+com\contact\controller\ContactController.class
+com\contact\DaoImpl\ContactDaoImpl.class
+com\contact\model\Contact.class

@@ -16,7 +16,7 @@
 	</bean>
 	<!-- configure Hibernate 4 specific local session factory bean -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
-		p:packagesToScan="com.contact.model" p:dataSource-ref="dataSource">
+		p:packagesToScan="com.contact.model" p:dataSource-ref="jndiDataSource">
 		<property name="hibernateProperties">
 			<value>
 				hibernate.format_sql=true

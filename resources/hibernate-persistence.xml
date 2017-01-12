@@ -10,7 +10,7 @@
 	<!--<context:property-placeholder location="classpath:/database.properties" />-->
 	<!-- DS bean -->
 	<bean id="jndiDataSource" jndi="java:jboss/sampledb" class="org.springframework.jndi.JndiObjectFactoryBean"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/sampledb" p:username="${env.OPENSHIFT_MYSQL_DB_USERNAME}"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/sampledb" p:username="${env.OPENSHIFT_MYSQL_DB_USERNAME}"
 		p:password="${env.OPENSHIFT_MYSQL_DB_PASSWORD}" p:initialSize="1" p:maxActive="10"
 		destroy-method="close" >
 	</bean>

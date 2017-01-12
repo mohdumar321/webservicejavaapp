@@ -9,14 +9,14 @@
 	<!-- supply loc -->
 	<!--<context:property-placeholder location="classpath:/database.properties" />-->
 	<!-- DS bean -->
-	<bean id="jndiDataSource" jndi="java:jboss/sampledb" class="org.springframework.jndi.JndiObjectFactoryBean"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/sampledb" p:username="${env.OPENSHIFT_MYSQL_DB_USERNAME}"
-		p:password="${env.OPENSHIFT_MYSQL_DB_PASSWORD}" p:initialSize="1" p:maxActive="10"
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://mysql:3306/sampledb" p:username="admin"
+		p:password="root" p:initialSize="1" p:maxActive="10"
 		destroy-method="close" >
 	</bean>
 	<!-- configure Hibernate 4 specific local session factory bean -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
-		p:packagesToScan="com.contact.model" p:dataSource-ref="jndiDataSource">
+		p:packagesToScan="com.contact.model" p:dataSource-ref="dataSource">
 		<property name="hibernateProperties">
 			<value>
 				hibernate.format_sql=true
